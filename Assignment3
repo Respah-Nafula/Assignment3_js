@@ -1,0 +1,82 @@
+// Mkulima is new Kenyan business-to-business (B2B) agro-startup focusing 
+// on connecting grocery vendors to rural farmers. This is through their 
+// online marketplace where farmers can trade vegetables and fruits with 
+// grocery vendors. To begin with, farmers have to register on the platform 
+// and login. Thereafter, they can upload their products with respective prices. 
+// On the other hand, grocery vendors can signup and login to the platform to place 
+// their bulk order requests.
+// Create a class Mkulima that will keep a list of farms, grocery vendors and 
+// products. A single farm record should contain id, farm name, farmer, phone number 
+// and address. A single grocery vendor record should contain id, store name and phone 
+// number. A product should have id, name and price fields.
+// Users of the system should be able to:
+//  addFarm - params: farmId, name, farmer, phone, address
+//  removeFarm - params: farmId
+//  updateFarm - params: farmId, name, farmer, phone, address
+//  getFarm - params: farmId - returns a farm object
+//  addProduct - params: productId, name, price
+//  removeProduct - params: productId
+//  updateProduct - params: productId, name, price
+//  getProduct - params: productId - returns a product object
+//  printProducts - No param, console logs a list of product items with their prices.
+// calculateOrderCost - params: productId, quantity
+
+
+class Mkulima{
+    constructor(){
+    this.farms = [];
+    this.groceryVendors = [];
+    this.products = [];
+    this.addFarm = (farm_Id, farm_name, farmer, phone_number, address) => {
+    this.farms.push({farm_Id,farm_name,farmer,phone_number,address})}
+    
+    this.removeFarm = (farm_Id) => {
+    let farmDetails = this.farms.find(item => item.farm_Id ===farm_Id);
+    let farm_Index = this.farms.indexOf(specificItem);
+    this.farms.splice(farm_Index, 1);
+    }
+    this.updateFarm = function(farm_Id,newFarm_Id,newFarm_Name,newFarmer_Name,newPhone,newAddress){
+    let farmDetails = this.farms.find(item => item.farmId ===farmId)
+    farmDetails.farm_Id =newFarm_Id;
+    farmDetails.farm_Name =newFarm_Name;
+    farmDetails.farmer =newFarmer_Name;
+    farmDetails.phone =newPhone;
+    farmDetails.address =newAddress;
+    }
+    this.getFarm = (Id)=>{
+    console.log(this.farms.find(object=>object.farmId===Id))}
+
+    this.addProduct = (product_Id, product_Name, price) => {
+    this.product.push({product_Id,product_Name,price})}
+
+    this.removeProduct = (product_Id) => {
+    let specific = this.product.find(item => item.product_Id ===product_Id);
+    let productIndex = this.product.indexOf(specific);
+    this.product.splice(productIndex, 1);
+    }
+    this.updateProduct = function(product_Id,newProduct_Id,newProduct_Name,newPrice){
+    let specificProduct = this.product.find(item => item.product_Id ===product_Id)
+    specificProduct.productId =newProduct_Id;
+    specificProduct.productName = newProduct_Name;
+    specificProduct.price = newPrice;
+    }
+    this.getProduct = (Id)=>{
+    console.log(this.product.find(object=>object.productId===Id))}
+
+    this.printProducts = ()=>{
+    console.log(this.product)}
+
+    this.calculateOrderCost = (product_Id,quantity)=>{
+    let specificProduct = this.product.find(object=>object.productId===productId);
+    console.log(`${quantity} ${specificProduct.productName} for KES ${quantity*specificProduct.price}`);}
+    }
+    }
+    
+    let farm2 = new Mkulima();
+    farm2.addFarm("7860","masha","Joyce","074563784", "PA4758");
+    farm2.addFarm("878","Taabu","Nikitah","0578364473", "PSU785");
+    farm2.addFarm("978","Abdi","Ibrahim","077362829", "TYD987");
+    console.log(farm2.farms);
+    
+    farm2.removeFarm("7860");
+    console.log()
